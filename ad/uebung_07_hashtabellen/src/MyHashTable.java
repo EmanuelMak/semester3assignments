@@ -24,7 +24,7 @@ public class MyHashTable {
 
 
     MyHashTable() {
-        hashTable = new Entry[TABLE_SIZE];
+        this.hashTable = new Entry[TABLE_SIZE];
     }
 
     // hash function
@@ -66,7 +66,7 @@ public class MyHashTable {
             // compute probing position in hash table
             int j  = (hash + i) % TABLE_SIZE;
 
-            if (hashTable[j] == null) {
+            if (hashTable[j] == null || hashTable[j].key == Integer.MAX_VALUE) {
                 hashTable[j] = new Entry(k,v);
                 return;
             }
@@ -78,10 +78,23 @@ public class MyHashTable {
 
     // delete entry with key k from hash table
     public void delete(int k)  {
+        int hash = hashFunction(k);
+        int i = 0;      // counter for probing sequence
 
-        // TODO
-
-        // do other methods have to be modified as well?
+        while (i < TABLE_SIZE) {
+            // compute probing position in hash table
+            int j = (hash + i) % TABLE_SIZE;
+            if(hashTable[j] == null){
+                return;
+            }
+            else if(hashTable[j].key == k){
+                hashTable[j].key = Integer.MAX_VALUE;
+                System.out.println( k +"wurde gelöscht");
+            }
+            i++;
+        }
+        return;
+            // do other methods have to be modified as well?
     }
 
     public void printHash() {
