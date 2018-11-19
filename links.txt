@@ -1,0 +1,1 @@
+git clone https://inf-git.fh-rosenheim.de/kufl174/BS_exercises.git
