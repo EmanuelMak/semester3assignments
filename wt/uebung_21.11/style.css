@@ -1,0 +1,13 @@
+.split {
+    display: flex;
+}
+.jokecontainers {
+    width: 30%;
+    text-align: center;
+}
+.jokePrint{
+    text-align: center;
+}
+.centerd{
+    text-align:center;
+}
